@@ -1,0 +1,15 @@
+{
+  "name": "Demo User",
+  "email": "demo@example.com",
+  "age": 25,
+  "height_cm": 170,
+  "weight_kg": 68,
+  "sex": "male",
+  "activity_level": "moderate",
+  "dietary_preference": "vegetarian",
+  "goal": "maintain",
+  "allergies": ["nuts"],
+  "cuisines": ["indian", "mediterranean"],
+  "budget_per_day": 300,
+  "timeline_weeks": 8
+}
