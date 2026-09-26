@@ -94,6 +94,26 @@ Storage Layer (simulated cloud object storage)
   ↓
 Dashboard / Saved Plans / Files
 
+## Screenshots
+
+Add your project screenshots inside the `screenshots/` folder and reference them here for a presentation-ready GitHub page.
+
+```md
+![Landing Page](screenshots/landing-page.png)
+![Login Page](screenshots/login-page.png)
+![Dashboard](screenshots/dashboard.png)
+![Diet Plan Result](screenshots/plan-result.png)
+```
+
+Recommended screenshots to include:
+
+- landing page hero section
+- login/register page
+- profile form
+- generated diet plan result
+- cloud storage/upload workflow
+- final dashboard or saved-plan view
+
 ## Folder Structure
 
 ```
@@ -114,10 +134,12 @@ AI-Powered-Personal-Diet-Planner-with-Cloud-Storage/
 ├── docs/
 │   ├── architecture.md
 │   ├── deployment.md
+│   ├── final-academic-submission.md
 │   ├── project-report.md
 │   ├── requirements-checklist.md
 │   ├── submission-summary.md
 │   ├── testing.md
+│   ├── viva-script.md
 │   └── interview-prep.md
 ├── frontend/
 │   ├── package.json
