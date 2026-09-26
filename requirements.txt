@@ -1,0 +1,8 @@
+# Project root dependency file
+# Install backend dependencies with:
+#   pip install -r requirements.txt
+#
+# This project keeps the backend dependency list in backend/requirements.txt.
+# This root file is provided for convenience and compatibility with student-project templates.
+
+-r backend/requirements.txt

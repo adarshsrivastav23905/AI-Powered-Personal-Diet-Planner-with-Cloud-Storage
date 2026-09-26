@@ -1,16 +1,43 @@
-# React + Vite
+# NutriCloud AI Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This frontend powers the AI-Powered Personal Diet Planner application.
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The interface allows users to:
 
-## React Compiler
+- register and sign in
+- create and update their health profile
+- generate a personalized diet plan
+- view saved plans
+- upload files to the cloud-storage simulation
+- access a professional dashboard experience
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the Oxlint configuration
+- React
+- Vite
+- Axios for API requests
+- React Router for navigation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Run locally
+
+```bash
+cd frontend
+npm install
+npm run dev -- --host 0.0.0.0
+```
+
+Then open:
+
+- http://localhost:5173
+
+## API base
+
+The frontend connects to the Flask backend at:
+
+- http://localhost:5000
+
+## Notes
+
+This project has been customized from the default Vite starter to match the NutriCloud AI branding and the cloud-computing student project requirements.
