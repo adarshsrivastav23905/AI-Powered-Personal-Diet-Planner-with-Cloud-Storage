@@ -1,0 +1,326 @@
+{
+  "description": "Synthetic food database for AI Diet Planner (educational demo data only)",
+  "disclaimer": "Nutritional values are approximate and for demonstration purposes only. Not for clinical use.",
+  "foods": [
+    {
+      "id": "poha",
+      "name": "Poha (Flattened Rice)",
+      "category": "breakfast",
+      "per_serving": {"kcal": 270, "protein": 5, "carbs": 45, "fat": 8},
+      "serving_size": "1 plate (200g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "idli_sambar",
+      "name": "Idli with Sambar",
+      "category": "breakfast",
+      "per_serving": {"kcal": 300, "protein": 9, "carbs": 55, "fat": 5},
+      "serving_size": "3 idlis + sambar",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "oatmeal_banana",
+      "name": "Oatmeal with Banana & Honey",
+      "category": "breakfast",
+      "per_serving": {"kcal": 320, "protein": 10, "carbs": 58, "fat": 6},
+      "serving_size": "1 bowl (250g)",
+      "tags": ["vegetarian"],
+      "allergens": ["gluten"],
+      "cuisine": "continental"
+    },
+    {
+      "id": "upma",
+      "name": "Vegetable Upma",
+      "category": "breakfast",
+      "per_serving": {"kcal": 250, "protein": 7, "carbs": 40, "fat": 7},
+      "serving_size": "1 plate (200g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["gluten"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "paratha_curd",
+      "name": "Aloo Paratha with Curd",
+      "category": "breakfast",
+      "per_serving": {"kcal": 400, "protein": 10, "carbs": 52, "fat": 18},
+      "serving_size": "2 parathas + curd",
+      "tags": ["vegetarian"],
+      "allergens": ["gluten", "dairy"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "egg_toast",
+      "name": "Boiled Eggs with Whole Wheat Toast",
+      "category": "breakfast",
+      "per_serving": {"kcal": 350, "protein": 22, "carbs": 30, "fat": 15},
+      "serving_size": "2 eggs + 2 slices",
+      "tags": ["eggetarian", "non_vegetarian"],
+      "allergens": ["gluten", "eggs"],
+      "cuisine": "continental"
+    },
+    {
+      "id": "smoothie_bowl",
+      "name": "Berry Smoothie Bowl",
+      "category": "breakfast",
+      "per_serving": {"kcal": 280, "protein": 8, "carbs": 48, "fat": 6},
+      "serving_size": "1 bowl (300ml)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "continental"
+    },
+    {
+      "id": "dosa_chutney",
+      "name": "Masala Dosa with Coconut Chutney",
+      "category": "breakfast",
+      "per_serving": {"kcal": 350, "protein": 8, "carbs": 50, "fat": 14},
+      "serving_size": "1 dosa + chutney",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "dal_rice",
+      "name": "Dal with Steamed Rice",
+      "category": "lunch",
+      "per_serving": {"kcal": 420, "protein": 16, "carbs": 68, "fat": 8},
+      "serving_size": "1 bowl dal + 1 cup rice",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "rajma_rice",
+      "name": "Rajma (Kidney Beans) with Rice",
+      "category": "lunch",
+      "per_serving": {"kcal": 450, "protein": 18, "carbs": 72, "fat": 9},
+      "serving_size": "1 bowl rajma + rice",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "chole_rice",
+      "name": "Chole (Chickpeas) with Brown Rice",
+      "category": "lunch",
+      "per_serving": {"kcal": 480, "protein": 20, "carbs": 70, "fat": 12},
+      "serving_size": "1 bowl chole + rice",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "paneer_roti",
+      "name": "Paneer Butter Masala with Roti",
+      "category": "lunch",
+      "per_serving": {"kcal": 520, "protein": 22, "carbs": 48, "fat": 26},
+      "serving_size": "1 bowl + 2 rotis",
+      "tags": ["vegetarian"],
+      "allergens": ["gluten", "dairy"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "veg_biryani",
+      "name": "Vegetable Biryani",
+      "category": "lunch",
+      "per_serving": {"kcal": 450, "protein": 12, "carbs": 70, "fat": 14},
+      "serving_size": "1 plate (300g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "chicken_rice",
+      "name": "Grilled Chicken with Brown Rice",
+      "category": "lunch",
+      "per_serving": {"kcal": 500, "protein": 38, "carbs": 55, "fat": 12},
+      "serving_size": "150g chicken + 1 cup rice",
+      "tags": ["non_vegetarian"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "quinoa_salad",
+      "name": "Quinoa & Chickpea Salad",
+      "category": "lunch",
+      "per_serving": {"kcal": 380, "protein": 16, "carbs": 52, "fat": 12},
+      "serving_size": "1 large bowl",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "continental"
+    },
+    {
+      "id": "egg_fried_rice",
+      "name": "Egg Fried Rice",
+      "category": "lunch",
+      "per_serving": {"kcal": 420, "protein": 18, "carbs": 58, "fat": 14},
+      "serving_size": "1 plate",
+      "tags": ["eggetarian"],
+      "allergens": ["eggs"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "mixed_fruit",
+      "name": "Mixed Fruit Bowl",
+      "category": "snack",
+      "per_serving": {"kcal": 150, "protein": 2, "carbs": 38, "fat": 1},
+      "serving_size": "1 bowl (200g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "any"
+    },
+    {
+      "id": "peanut_chikki",
+      "name": "Peanut Chikki (Brittle)",
+      "category": "snack",
+      "per_serving": {"kcal": 200, "protein": 7, "carbs": 22, "fat": 10},
+      "serving_size": "2 pieces (50g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["nuts"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "sprouts_chat",
+      "name": "Sprouts Chaat",
+      "category": "snack",
+      "per_serving": {"kcal": 180, "protein": 10, "carbs": 28, "fat": 4},
+      "serving_size": "1 bowl (150g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "yogurt_granola",
+      "name": "Greek Yogurt with Granola",
+      "category": "snack",
+      "per_serving": {"kcal": 220, "protein": 14, "carbs": 28, "fat": 6},
+      "serving_size": "1 cup (200g)",
+      "tags": ["vegetarian"],
+      "allergens": ["dairy", "gluten"],
+      "cuisine": "continental"
+    },
+    {
+      "id": "roasted_makhana",
+      "name": "Roasted Makhana (Fox Nuts)",
+      "category": "snack",
+      "per_serving": {"kcal": 160, "protein": 5, "carbs": 26, "fat": 4},
+      "serving_size": "1 cup (50g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "trail_mix",
+      "name": "Dry Fruits & Nuts Trail Mix",
+      "category": "snack",
+      "per_serving": {"kcal": 250, "protein": 8, "carbs": 20, "fat": 16},
+      "serving_size": "1 handful (40g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["nuts"],
+      "cuisine": "any"
+    },
+    {
+      "id": "banana_peanut_butter",
+      "name": "Banana with Peanut Butter",
+      "category": "snack",
+      "per_serving": {"kcal": 260, "protein": 8, "carbs": 32, "fat": 12},
+      "serving_size": "1 banana + 2 tbsp PB",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["nuts"],
+      "cuisine": "continental"
+    },
+    {
+      "id": "roti_sabzi",
+      "name": "Roti with Mixed Vegetable Curry",
+      "category": "dinner",
+      "per_serving": {"kcal": 380, "protein": 12, "carbs": 55, "fat": 12},
+      "serving_size": "2 rotis + sabzi",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["gluten"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "palak_paneer",
+      "name": "Palak Paneer with Roti",
+      "category": "dinner",
+      "per_serving": {"kcal": 420, "protein": 20, "carbs": 40, "fat": 20},
+      "serving_size": "1 bowl + 2 rotis",
+      "tags": ["vegetarian"],
+      "allergens": ["gluten", "dairy"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "khichdi",
+      "name": "Moong Dal Khichdi",
+      "category": "dinner",
+      "per_serving": {"kcal": 350, "protein": 14, "carbs": 58, "fat": 6},
+      "serving_size": "1 bowl (250g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "veg_soup_bread",
+      "name": "Mixed Vegetable Soup with Bread",
+      "category": "dinner",
+      "per_serving": {"kcal": 280, "protein": 8, "carbs": 42, "fat": 8},
+      "serving_size": "1 bowl soup + 2 slices",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["gluten"],
+      "cuisine": "continental"
+    },
+    {
+      "id": "tofu_stir_fry",
+      "name": "Tofu Stir-Fry with Noodles",
+      "category": "dinner",
+      "per_serving": {"kcal": 400, "protein": 22, "carbs": 48, "fat": 14},
+      "serving_size": "1 plate",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["soy", "gluten"],
+      "cuisine": "asian"
+    },
+    {
+      "id": "fish_curry",
+      "name": "Fish Curry with Steamed Rice",
+      "category": "dinner",
+      "per_serving": {"kcal": 450, "protein": 30, "carbs": 52, "fat": 14},
+      "serving_size": "1 bowl curry + rice",
+      "tags": ["non_vegetarian"],
+      "allergens": ["fish"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "dal_tadka_rice",
+      "name": "Dal Tadka with Jeera Rice",
+      "category": "dinner",
+      "per_serving": {"kcal": 440, "protein": 16, "carbs": 68, "fat": 10},
+      "serving_size": "1 bowl + 1 cup rice",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": [],
+      "cuisine": "indian"
+    },
+    {
+      "id": "egg_curry_rice",
+      "name": "Egg Curry with Rice",
+      "category": "dinner",
+      "per_serving": {"kcal": 430, "protein": 20, "carbs": 55, "fat": 14},
+      "serving_size": "2 eggs curry + rice",
+      "tags": ["eggetarian"],
+      "allergens": ["eggs"],
+      "cuisine": "indian"
+    },
+    {
+      "id": "pasta_arrabiata",
+      "name": "Whole Wheat Pasta Arrabiata",
+      "category": "dinner",
+      "per_serving": {"kcal": 380, "protein": 14, "carbs": 62, "fat": 8},
+      "serving_size": "1 plate (250g)",
+      "tags": ["vegetarian", "vegan"],
+      "allergens": ["gluten"],
+      "cuisine": "continental"
+    }
+  ]
+}

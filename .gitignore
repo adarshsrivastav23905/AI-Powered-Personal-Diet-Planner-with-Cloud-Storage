@@ -1,0 +1,56 @@
+# ═══════════════════════════════════════════════════════
+# .gitignore - AI-Powered Personal Diet Planner
+# ═══════════════════════════════════════════════════════
+
+# ── Environment & Secrets ─────────────────────────────
+.env
+*.env.local
+.env.production
+
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# ── Node / React ──────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+.npm
+.eslintcache
+
+# ── Database ──────────────────────────────────────────
+backend/data/
+*.db
+*.sqlite3
+
+# ── Uploads (cloud storage simulation) ────────────────
+backend/uploads/
+
+# ── IDE & OS ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────
+*.log
+logs/
+
+# ── Coverage & Testing ───────────────────────────────
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
