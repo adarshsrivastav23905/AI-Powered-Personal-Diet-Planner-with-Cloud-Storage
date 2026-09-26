@@ -267,6 +267,33 @@
   box-shadow: 0 20px 44px rgba(9, 14, 23, 0.46);
 }
 
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 8px 10px 0;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 18px;
+  background: rgba(15, 21, 34, 0.9);
+  border: 1px solid rgba(151, 167, 201, 0.16);
+  border-radius: 18px;
+  color: #edf4ff;
+}
+
+.stat-box strong {
+  font-size: 1.08rem;
+}
+
+.stat-box span {
+  color: #b8c6e8;
+  font-size: 0.92rem;
+}
+
 .features,
 .how-it-works {
   padding: 15px 10px 0;
@@ -333,6 +360,32 @@
   font-weight: 800;
   background: linear-gradient(135deg, #6dd6ff, #7a68ff);
   color: #08101d;
+}
+
+.submission-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 8px;
+  padding: 28px 24px;
+  background: linear-gradient(135deg, rgba(93, 70, 185, 0.28), rgba(16, 22, 36, 0.9));
+  border: 1px solid rgba(162, 176, 214, 0.18);
+  border-radius: 22px;
+}
+
+.banner-kicker {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: #bdbdff;
+}
+
+.submission-banner h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  color: #f3f7ff;
 }
 
 .footer {
@@ -493,9 +546,15 @@
     grid-template-columns: 1fr;
   }
 
+  .stats-strip,
   .features-grid,
   .steps-grid {
     grid-template-columns: 1fr;
+  }
+
+  .submission-banner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar {

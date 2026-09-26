@@ -72,6 +72,21 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section className="stats-strip" aria-label="Project highlights">
+        <div className="stat-box">
+          <strong>AI-driven</strong>
+          <span>Personal meal suggestions</span>
+        </div>
+        <div className="stat-box">
+          <strong>Cloud-ready</strong>
+          <span>Database + storage workflow</span>
+        </div>
+        <div className="stat-box">
+          <strong>Secure access</strong>
+          <span>JWT auth and user isolation</span>
+        </div>
+      </section>
+
       <section className="features" id="features">
         <h2>Why <span className="gradient-text">NutriCloud AI</span>?</h2>
         <div className="features-grid">
@@ -132,6 +147,14 @@ export default function LandingPage() {
             <p>Update your profile, save plans, and adapt your routine as your goals evolve.</p>
           </div>
         </div>
+      </section>
+
+      <section className="submission-banner">
+        <div>
+          <p className="banner-kicker">Built for real-world learning</p>
+          <h3>Designed to showcase cloud computing, AI planning, and full-stack development.</h3>
+        </div>
+        <Link to="/register" className="btn btn-primary btn-lg">Create Your Diet Plan</Link>
       </section>
 
       <footer className="footer">

@@ -1,6 +1,12 @@
 # AI-Powered Personal Diet Planner with Cloud Storage
 
-A cloud-computing student project that demonstrates a full-stack, AI-assisted personal diet planner. The app uses a Python Flask backend, React frontend, SQLite database for local simulation, and a cloud-storage-inspired file system for uploaded files. It focuses on cloud concepts, authentication, user-specific data isolation, REST APIs, and AI-generated meal planning.
+A modern full-stack cloud-computing project designed to help users plan healthier meals through personalized nutrition recommendations, secure profile management, and a cloud-inspired storage workflow. This application combines a Python Flask backend, React frontend, SQLite-based user data storage, and an AI-style meal planning engine to demonstrate core cloud application principles in a practical, student-friendly project.
+
+## Project Description
+
+NutriCloud AI is a personal diet planner that helps users register, create a health profile, define nutrition goals, and generate custom meal plans based on their preferences and lifestyle. It demonstrates how a real-world web application can integrate authentication, user-specific data storage, API-driven services, and cloud-like file storage into a single project.
+
+The system is designed for accessibility and clarity: users can sign in, update their profile, generate a plan, review meal recommendations, and save or manage personal data through a clean dashboard experience. The project is intentionally structured to be both functional and easy to explain during interviews, presentations, and academic evaluation.
 
 ## Overview
 
@@ -109,6 +115,8 @@ AI-Powered-Personal-Diet-Planner-with-Cloud-Storage/
 │   ├── architecture.md
 │   ├── deployment.md
 │   ├── project-report.md
+│   ├── requirements-checklist.md
+│   ├── submission-summary.md
 │   ├── testing.md
 │   └── interview-prep.md
 ├── frontend/
