@@ -1,12 +1,20 @@
 # AI-Powered Personal Diet Planner with Cloud Storage
 
-A modern full-stack cloud-computing project designed to help users plan healthier meals through personalized nutrition recommendations, secure profile management, and a cloud-inspired storage workflow. This application combines a Python Flask backend, React frontend, SQLite-based user data storage, and an AI-style meal planning engine to demonstrate core cloud application principles in a practical, student-friendly project.
+An AI-assisted personal nutrition planner that combines a React frontend, Flask REST API, JWT authentication, SQLite persistence, a rule-based meal recommendation engine, and user-scoped cloud-storage simulation. This locally runnable Cloud Computing coursework prototype demonstrates how a full-stack application can separate structured data, unstructured files, authentication, and recommendation logic.
+
+> **Project status:** This is a locally runnable academic prototype, not a live cloud deployment. Its current defaults are SQLite, local filesystem uploads, and application-managed JWT authentication. The cloud architectures described in this repository are deployment plans; managed cloud services are not provisioned by the current implementation.
+
+## Author
+
+**Adarsh Srivastav**
+
+Cloud Computing coursework project
 
 ## Project Description
 
-NutriCloud AI is a personal diet planner that helps users register, create a health profile, define nutrition goals, and generate custom meal plans based on their preferences and lifestyle. It demonstrates how a real-world web application can integrate authentication, user-specific data storage, API-driven services, and cloud-like file storage into a single project.
+NutriCloud AI helps users register, create a health profile, define nutrition goals, and generate custom meal plans based on their preferences and lifestyle. It demonstrates how a real-world web application can integrate authentication, user-specific data storage, API-driven services, and cloud-like file storage into a single project.
 
-The system is designed for accessibility and clarity: users can sign in, update their profile, generate a plan, review meal recommendations, and save or manage personal data through a clean dashboard experience. The project is intentionally structured to be both functional and easy to explain during interviews, presentations, and academic evaluation.
+The system is designed for accessibility and clarity: users can sign in, update their profile, calculate nutrition targets, generate a plan, review meal recommendations, and manage personal data through a clean dashboard experience. The project is intentionally structured to be functional, testable, and easy to explain during interviews, presentations, and academic evaluation.
 
 ## Overview
 
@@ -49,6 +57,18 @@ People often do not know which foods match their goals, activity level, and diet
 - Secure user isolation
 - Testing suite for the backend
 
+## User Workflow
+
+```text
+User creates an account
+  -> User signs in and receives a JWT
+  -> User completes a nutrition profile
+  -> Backend calculates nutrition targets
+  -> AI engine generates meals from profile data and targets
+  -> Plan is stored for the authenticated user
+  -> User can retrieve plans and manage user-scoped files
+```
+
 ## Cloud Computing Concepts Demonstrated
 
 This project includes the following concepts:
@@ -76,43 +96,73 @@ This project includes the following concepts:
 - Authentication: JWT
 - Testing: Pytest
 
-## Architecture
+## System Architecture
 
-User
-  ↓
-Frontend (React)
-  ↓
-Authentication
-  ↓
-REST API (Flask)
-  ↓
-AI Engine / Nutrition Logic
-  ↓
-Database (SQLite)
-  ↓
-Storage Layer (simulated cloud object storage)
-  ↓
-Dashboard / Saved Plans / Files
+```mermaid
+flowchart LR
+    U[User] -->|Browser| F[React + Vite frontend]
+    F -->|JSON and JWT requests| A[Flask REST API]
+    A --> AU[JWT authentication]
+    A --> P[Profile and nutrition service]
+    A --> PL[Diet plan routes]
+    P --> N[BMR, TDEE, macro, and hydration calculations]
+    PL --> AI[Rule-based diet engine]
+    A --> DB[(SQLite database)]
+    A --> ST[Storage service]
+    ST --> FS[User-scoped local folders]
+    DB -. deployment option .-> MDB[(Managed database)]
+    ST -. deployment option .-> OS[Cloud object storage]
+```
+
+The solid paths represent the current local implementation. The dotted paths are possible cloud deployment integrations and are not currently connected services.
+
+## Database Design
+
+| Entity | Purpose |
+| --- | --- |
+| `users` | Stores user identity, password hash, profile fields, goals, preferences, and completion status. |
+| `diet_plans` | Stores generated meals, calories, macronutrients, hydration reminders, diet type, goal, and owner ID. |
+| `user_files` | Stores uploaded-file metadata, owner ID, original filename, storage path, size, and type. |
+
+The database stores file metadata while uploaded file contents remain in the user-scoped storage directory. This demonstrates the difference between structured database records and unstructured object data.
+
+## File Storage
+
+The active storage service saves uploaded files under a user-specific directory inside `backend/uploads/`. Each upload receives a generated file ID and a secured stored filename. The database records the original filename and storage metadata.
+
+The storage routes enforce ownership when listing, downloading, and deleting files. For production, this service boundary can be replaced with private Amazon S3, Azure Blob Storage, Google Cloud Storage, or Firebase Storage using authorized or signed download URLs.
+
+## Authentication and Authorization
+
+- Registration validates the name, email, and password before creating a user.
+- Passwords are stored as hashes rather than plaintext values.
+- Login returns a signed JWT and basic user information.
+- Protected endpoints require a valid Bearer token.
+- Profile, plan, and file operations use the authenticated user ID.
+- Plan and file retrieval prevents one user from accessing another user's records.
+- Logout acknowledges the request; because JWT is stateless, the client removes its stored token.
 
 ## Screenshots
 
-Add your project screenshots inside the `screenshots/` folder and reference them here for a presentation-ready GitHub page.
+The `screenshots/` folder contains evidence of the application workflow, responsive layout, automated tests, architecture, and GitHub presentation.
 
-```md
-![Landing Page](screenshots/landing-page.png)
-![Login Page](screenshots/login-page.png)
-![Dashboard](screenshots/dashboard.png)
-![Diet Plan Result](screenshots/plan-result.png)
-```
+| Screenshot | Demonstrates |
+| --- | --- |
+| [Landing page](screenshots/01_landing_page.png) | Project branding, purpose, and main call to action. |
+| [Landing features](screenshots/02_landing_features.png) | AI planning, cloud storage, security, and platform capabilities. |
+| [Registration page](screenshots/03_registration_page.png) | New-user account creation workflow. |
+| [Login page](screenshots/04_login_page.png) | Returning-user authentication workflow. |
+| [Completed profile](screenshots/05_completed_profile.png) | Profile data used by nutrition calculations. |
+| [Nutrition targets](screenshots/06_nutrition_targets.png) | BMR, TDEE, calories, macros, and hydration targets. |
+| [Plan configuration](screenshots/07_plan_configuration.png) | Diet type, goal, plan name, and generation controls. |
+| [Generated diet plan](screenshots/08_generated_diet_plan.png) | Breakfast, lunch, snack, dinner, and food-level recommendations. |
+| [Nutrition summary](screenshots/09_nutrition_summary.png) | Total calories, macros, hydration reminder, and disclaimer. |
+| [Responsive mobile view](screenshots/10_responsive_mobile_view.png) | Usability on a mobile viewport. |
+| [Backend test results](screenshots/11_backend_test_results.png) | Successful automated backend test execution. |
+| [System architecture](screenshots/12_system_architecture.png) | Relationship between frontend, API, AI, database, and storage. |
+| [GitHub project overview](screenshots/13_github_project_overview.png) | Repository presentation and documentation. |
 
-Recommended screenshots to include:
-
-- landing page hero section
-- login/register page
-- profile form
-- generated diet plan result
-- cloud storage/upload workflow
-- final dashboard or saved-plan view
+Application screenshots show the local prototype. They do not represent a live hosted cloud deployment or clinical nutrition service.
 
 ## Folder Structure
 
@@ -156,83 +206,91 @@ AI-Powered-Personal-Diet-Planner-with-Cloud-Storage/
 └── requirements.txt
 ```
 
+## Installation
+
+### Prerequisites
+
+- Python 3.11 or newer.
+- Node.js and npm.
+- Git, if cloning the repository.
+
+## Environment Variables
+
+Create a local `.env` file from `.env.example` and set a strong secret for non-demo use.
+
+| Variable | Purpose | Local default |
+| --- | --- | --- |
+| `SECRET_KEY` | Flask application secret. | Development fallback in code. |
+| `PORT` | Backend listening port. | `5000` |
+| `FLASK_ENV` | Selects development behavior. | `development` |
+
+Do not commit real secrets, tokens, passwords, or private user data to GitHub.
+
 ## Local Setup
 
-### 1. Clone the project
+From the project root in Windows PowerShell:
 
-```bash
-git clone <your-repo-url>
-cd AI-Powered-Personal-Diet-Planner-with-Cloud-Storage
-```
-
-### 2. Create Python environment
-
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
-```
-
-### 3. Install backend dependencies
-
-```bash
-cd backend
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-```
-
-### 4. Install frontend dependencies
-
-```bash
-cd ../frontend
+python -m pip install pytest
+Set-Location frontend
 npm install
+Set-Location ..
 ```
 
-### 5. Start backend
+If PowerShell activation is unavailable, use the virtual environment executable directly:
 
-```bash
-cd ../backend
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install pytest
+```
+
+## Running the Application
+
+Start the backend in one terminal:
+
+```powershell
+Set-Location backend
 python app.py
 ```
 
-### 6. Start frontend
+The API runs at `http://localhost:5000` and its health endpoint is `http://localhost:5000/api/health`.
 
-```bash
-cd ../frontend
+Start the React frontend in a second terminal:
+
+```powershell
+Set-Location frontend
 npm run dev -- --host 0.0.0.0
 ```
 
-Open:
+Open the frontend at `http://localhost:5173`.
 
-- Frontend: http://localhost:5173
-- Backend: http://localhost:5000
+The backend must be running for registration, login, profile saving, plan generation, and storage operations.
 
-## Backend API Endpoints
+## API Reference
 
-Authentication:
+All API routes are served by Flask. Protected routes require `Authorization: Bearer <token>`.
 
-- POST /api/auth/register
-- POST /api/auth/login
-- POST /api/auth/logout
-- GET /api/auth/me
-
-Profile:
-
-- GET /api/profile
-- PUT /api/profile
-- GET /api/profile/targets
-
-Plans:
-
-- POST /api/plans/generate
-- GET /api/plans
-- GET /api/plans/<plan_id>
-- DELETE /api/plans/<plan_id>
-
-Storage:
-
-- POST /api/storage/upload
-- GET /api/storage/files
-- GET /api/storage/files/<file_id>/download
-- DELETE /api/storage/files/<file_id>
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/health` | Health check for the backend service. |
+| `POST` | `/api/auth/register` | Create a user account and return a JWT. |
+| `POST` | `/api/auth/login` | Authenticate a user and return a JWT. |
+| `POST` | `/api/auth/logout` | Acknowledge client-side logout. |
+| `GET` | `/api/auth/me` | Return the current authenticated user. |
+| `GET` | `/api/profile` | Read the authenticated user's profile. |
+| `PUT` | `/api/profile` | Create or update profile information. |
+| `GET` | `/api/profile/targets` | Calculate and return nutrition targets. |
+| `POST` | `/api/plans/generate` | Generate and save a personalized diet plan. |
+| `GET` | `/api/plans` | List plans belonging to the authenticated user. |
+| `GET` | `/api/plans/<plan_id>` | Read one owner-authorized diet plan. |
+| `DELETE` | `/api/plans/<plan_id>` | Delete one owner-authorized diet plan. |
+| `POST` | `/api/storage/upload` | Upload an allowed file for the current user. |
+| `GET` | `/api/storage/files` | List files belonging to the current user. |
+| `GET` | `/api/storage/files/<file_id>/download` | Download an owner-authorized file. |
+| `DELETE` | `/api/storage/files/<file_id>` | Delete an owner-authorized file. |
 
 ## AI Recommendation Approach
 
@@ -252,10 +310,17 @@ The automated backend suite is in:
 
 - `tests/test_app.py`
 
-Run:
+Run the suite from the `backend` directory:
 
-```bash
-python -m pytest tests/test_app.py -q
+```powershell
+Set-Location backend
+..\.venv\Scripts\python.exe -m pytest ..\tests\test_app.py -q
+```
+
+A verified local run reports:
+
+```text
+27 passed
 ```
 
 ## Security and Data Privacy
@@ -269,40 +334,40 @@ The project follows basic security principles:
 - no credentials stored in source files
 - environment variables for secrets
 
-## Deployment Notes
+## Cloud Deployment Plan
 
-This project is designed to run locally first and can be extended to cloud deployment using:
+The repository is structured so local services can later be replaced with managed cloud services:
 
-- Firebase Hosting + Authentication + Firestore + Storage
-- Supabase for auth/database/storage
-- Vercel + Render + Railway for frontend/backend hosting
-- AWS/Azure/GCP services for advanced deployment
+1. Host the React frontend on a static hosting platform or production web service.
+2. Run the Flask API with a production WSGI server or container platform.
+3. Replace SQLite with a managed relational database such as PostgreSQL.
+4. Replace local uploads with private object storage such as Amazon S3, Azure Blob Storage, Google Cloud Storage, or Firebase Storage.
+5. Store secrets in a provider-managed secret manager.
+6. Configure HTTPS, restricted CORS, monitoring, backups, and access policies.
 
-See the docs in the `docs/` folder for detailed deployment guidance.
-
-## GitHub Strategy
-
-This repo is structured to look like a real, polished student project by including:
-
-- organized folders
-- a clear README
-- modular backend frontend code
-- tests
-- architecture and deployment notes
-- a professional project narrative
+This is a deployment plan, not a claim that the current repository is already deployed or connected to those services.
 
 ## Disclaimer
 
 This project is for educational and general wellness demonstration. Generated diet plans are not medical advice and should not replace professional nutrition or clinical guidance.
 
-## Future Enhancements
+## Limitations
 
-- meal history analytics
-- user dashboards with charts
-- better AI API integration with fallback logic
-- cloud database migration to Firebase/Supabase
-- file storage to S3/Firebase Storage
-- CI/CD deployment pipeline
+- The current database is SQLite for local development and testing.
+- Uploaded files use local filesystem storage rather than durable object storage.
+- The recommendation engine is rule-based and not a medical AI system.
+- No managed cloud database, cloud storage adapter, hosted identity provider, CI/CD pipeline, or production deployment is configured.
+- Browser end-to-end, load, accessibility, and security audits are outside the current automated test suite.
+
+## Future Scope
+
+- Add a managed PostgreSQL database and migration workflow.
+- Implement provider-backed private object storage with signed downloads.
+- Add chart-based nutrition history and plan comparison.
+- Add browser end-to-end and accessibility testing.
+- Add CI checks for frontend build, backend tests, linting, and security scanning.
+- Integrate an optional external AI provider with a deterministic local fallback.
+- Add production identity management, refresh-token handling, rate limiting, and observability.
 
 ## License
 
