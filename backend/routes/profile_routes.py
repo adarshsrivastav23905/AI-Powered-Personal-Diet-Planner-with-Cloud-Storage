@@ -82,9 +82,9 @@ def update_profile(user_id):
         200: Profile updated successfully
         400: Validation error
     """
-    data = request.get_json()
+    data = request.get_json(silent=True)
 
-    if not data:
+    if not isinstance(data, dict):
         return jsonify({'error': 'Request body is required'}), 400
 
     # Validate profile data
@@ -104,11 +104,26 @@ def update_profile(user_id):
     for field in allowed_fields:
         if field in data:
             if field in ('allergies', 'cuisines'):
+                if isinstance(data[field], str):
+                    try:
+                        parsed = json.loads(data[field])
+                        if not isinstance(parsed, list):
+                            return jsonify({'error': f'{field} must be a list of strings'}), 400
+                        payload = parsed
+                    except json.JSONDecodeError:
+                        return jsonify({'error': f'{field} must be a list of strings'}), 400
+                elif isinstance(data[field], list):
+                    payload = data[field]
+                else:
+                    return jsonify({'error': f'{field} must be a list of strings'}), 400
                 updates.append(f'{field} = ?')
-                values.append(json.dumps(data[field]) if isinstance(data[field], list) else data[field])
+                values.append(json.dumps(payload))
             elif field == 'name':
                 updates.append(f'{field} = ?')
                 values.append(sanitize_string(data[field]))
+            elif field in ('sex', 'activity_level', 'dietary_preference', 'goal'):
+                updates.append(f'{field} = ?')
+                values.append(str(data[field]).strip().lower())
             else:
                 updates.append(f'{field} = ?')
                 values.append(data[field])

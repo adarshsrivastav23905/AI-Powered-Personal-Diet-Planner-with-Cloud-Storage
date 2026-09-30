@@ -43,9 +43,9 @@ def register():
         400: Validation error
         409: Email already exists
     """
-    data = request.get_json()
+    data = request.get_json(silent=True)
 
-    if not data:
+    if not isinstance(data, dict):
         return jsonify({'error': 'Request body is required'}), 400
 
     # Extract and sanitize fields
@@ -114,9 +114,9 @@ def login():
         400: Missing fields
         401: Invalid credentials
     """
-    data = request.get_json()
+    data = request.get_json(silent=True)
 
-    if not data:
+    if not isinstance(data, dict):
         return jsonify({'error': 'Request body is required'}), 400
 
     email = sanitize_string(data.get('email', '')).lower()

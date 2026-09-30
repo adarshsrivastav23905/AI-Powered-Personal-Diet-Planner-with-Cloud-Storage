@@ -20,6 +20,7 @@ import json
 from flask import Blueprint, request, jsonify
 from models.database import get_db
 from utils.auth_helpers import token_required, generate_plan_id
+from utils.validators import sanitize_string
 from services.nutrition_service import compute_targets
 
 # Import the AI diet engine
@@ -54,7 +55,9 @@ def generate_plan(user_id):
     DISCLAIMER: Generated plans are for educational/general wellness 
     demonstration only and NOT medical or clinical nutrition advice.
     """
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
+    if not isinstance(data, dict):
+        return jsonify({'error': 'Request body must be a JSON object'}), 400
 
     # Fetch user profile
     db = get_db()
@@ -74,9 +77,16 @@ def generate_plan(user_id):
         return jsonify({'error': 'Please complete your profile first'}), 400
 
     # Determine plan parameters (allow request overrides)
-    diet_type = data.get('diet_type', user['dietary_preference'] or 'vegetarian')
-    goal = data.get('goal', user['goal'] or 'maintain')
-    plan_name = data.get('plan_name', 'My Diet Plan')
+    diet_type = str(data.get('diet_type', user['dietary_preference'] or 'vegetarian')).strip().lower()
+    goal = str(data.get('goal', user['goal'] or 'maintain')).strip().lower()
+    plan_name = sanitize_string(data.get('plan_name', 'My Diet Plan'))
+
+    valid_diet_types = {'vegetarian', 'vegan', 'non_vegetarian', 'eggetarian'}
+    valid_goals = {'lose_weight', 'gain_weight', 'maintain', 'muscle_gain', 'general_fitness'}
+    if diet_type not in valid_diet_types:
+        diet_type = user['dietary_preference'] or 'vegetarian'
+    if goal not in valid_goals:
+        goal = user['goal'] or 'maintain'
 
     # Compute nutrition targets
     targets = compute_targets(
