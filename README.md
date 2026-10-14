@@ -27,7 +27,7 @@ This project solves a common real-world problem: people struggle to plan meals c
 - save and retrieve plans
 - upload and access files in a cloud-storage-style workflow
 - view a modern dashboard experience
-
+    
 This project is designed as a beginner-friendly, GitHub-ready cloud project that can be run locally and explained clearly in interviews.
 
 ## Problem Statement
